@@ -1,0 +1,42 @@
+// ---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Unit1.h"
+// ---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+
+// ---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner) : TForm(Owner) {
+}
+
+// ---------------------------------------------------------------------------
+void __fastcall TForm1::Button1Click(TObject *Sender) {
+	int count_col = StrToInt(LabeledEdit1->Text);
+	int count_row = StrToInt(LabeledEdit2->Text);
+
+	StringGrid1->RowCount = count_row;
+    StringGrid2->ColCount = count_col;
+	StringGrid1->ColCount = count_col;
+
+}
+
+// ---------------------------------------------------------------------------
+void __fastcall TForm1::Button2Click(TObject *Sender) {
+	int *mas_sum = new int[StringGrid1->ColCount];
+
+	for (int i = 0; i < StringGrid1->ColCount; i++) {
+		int sum = 0;
+		for (int j = 0; j < StringGrid1->RowCount; j++) {
+			sum += StrToInt(StringGrid1->Cells[i][j]);
+		};
+		mas_sum[i] = sum;
+	};
+	for (int x = 0; x < StringGrid1->ColCount; x++) {
+		ShowMessage(mas_sum[x]);
+	}
+}
+// ---------------------------------------------------------------------------

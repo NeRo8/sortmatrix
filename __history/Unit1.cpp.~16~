@@ -1,0 +1,94 @@
+// ---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Unit1.h"
+// ---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+
+// ---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner) : TForm(Owner) {
+}
+
+void bubbleSort(int* arrayPtr, int** myArray, int n, int m) {
+	/* Метод бульбашки для сортування двомірного масиву
+	 arrayPtr -> Нижній масив сумів рядків StringGrid2
+	 myArray -> Двомірний масив зчитаний з StringGrid1
+	 n -> Кількість стовпців масиву myArray
+	 m -> Кількість рядків масиву myArray
+	 */
+	int temp = 0; // тимчасова змінна, для зберігання елеменітв масиву
+	bool exit = false;
+	// булева змінна, для виходу з масиву при закінчення сортування
+
+	while (!exit) // поки масив не відсортований
+	{
+		exit = true;
+		for (int i = 0; i < (n - 1); i++) { // внутрішній цикл сортування
+			// сортувати по зростанню ---   >   ---
+			// сортувати по зменшенняю ---   <   ---
+			if (arrayPtr[i] > arrayPtr[i + 1]) { // порівнянн сусідніх елементів
+				// перестановка сусідніх елментів
+				temp = arrayPtr[i];
+				arrayPtr[i] = arrayPtr[i + 1];
+				arrayPtr[i + 1] = temp;
+				exit = false;
+				// Перестановка всіх елементів стовпця
+				for (int j = 0; j < m; j++) {
+					temp = myArray[i][j];
+					myArray[i][j] = myArray[i + 1][j];
+					myArray[i + 1][j] = temp;
+				}
+			}
+		}
+	}
+}
+
+// ---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button2Click(TObject *Sender) {
+	int n = StringGrid1->ColCount;
+	int m = StringGrid1->RowCount;
+	int **my_mas = new int* [n];
+	for (int i = 0; i < n; i++) {
+		my_mas[i] = new int[m];
+	}
+
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			my_mas[i][j] = StrToInt(StringGrid1->Cells[i][j]);
+		};
+	};
+
+	int *mas_for_sort = new int[n];
+	// Сума стовбців
+	for (int i = 0; i < n; i++) {
+		int sum = 0;
+		for (int j = 0; j < m; j++) {
+			sum += my_mas[i][j];
+		}
+		mas_for_sort[i] = sum;
+	}
+	bubbleSort(mas_for_sort, my_mas, n, m);
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			StringGrid2->Cells[i][j] = mas_for_sort[i];
+		}
+	}
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			StringGrid1->Cells[i][j] = my_mas[i][j];
+		}
+	}
+}
+
+// ---------------------------------------------------------------------------
+void __fastcall TForm1::Button1Click(TObject *Sender) {
+	StringGrid1->RowCount = LabeledEdit2->Text.ToInt();
+	StringGrid1->ColCount = LabeledEdit1->Text.ToInt();
+	StringGrid2->ColCount = LabeledEdit1->Text.ToInt();
+}
+// ---------------------------------------------------------------------------

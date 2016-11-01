@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.296,=C:\Users\nero\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.087,=C:\Users\nero\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.111,=C:\Users\nero\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.323,=C:\Users\nero\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>2016.11.01 19:34:59.465,=C:\Users\nero\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>2016.11.01 19:34:59.500,=C:\Users\nero\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>2016.11.01 20:21:05.070,C:\Users\nero\Desktop\project\Unit1.dfm=C:\Users\nero\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2016.11.01 20:21:05.070,C:\Users\nero\Desktop\project\Unit1.cpp=C:\Users\nero\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>2016.11.01 20:21:05.070,C:\Users\nero\Desktop\project\Unit1.h=C:\Users\nero\Documents\Embarcadero\Studio\Projects\Unit1.h</Transaction>
+    <Transaction>2016.11.01 20:21:06.039,C:\Users\nero\Desktop\project\Project1PCH1.h=C:\Users\nero\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>2016.11.01 20:21:06.783,C:\Users\nero\Desktop\project\Project1.cbproj=C:\Users\nero\Documents\Embarcadero\Studio\Projects\Project1.cbproj</Transaction>
+  </Transactions>
+</BorlandProject>
